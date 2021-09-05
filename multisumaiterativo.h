@@ -219,14 +219,14 @@ namespace LAB3JULIORUIZ1284719 {
 	private: System::Void btncalculacion_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
 		{
-			Stopwatch^ watch = gcnew System::Diagnostics::Stopwatch();
+			Stopwatch^ watch = gcnew Stopwatch();
 
 			watch->Start();
 			lblsolucion->Text = "" + multiplisuma(Convert::ToInt32(txbval1->Text), Convert::ToInt32(txbval2->Text));
 			watch->Stop();
 			MessageBox::Show("OPERACION REALIZADA EXITOSAMENTE", "OPERACION MULTISUMA", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
-			for (int i = 0; i < 10000; i++)
+			for (int i = 0; i < 10000; i++)//segun la internet tenia que llevar un for para funcionar el stopwatch
 			{
 				Console::Write(i);
 			}

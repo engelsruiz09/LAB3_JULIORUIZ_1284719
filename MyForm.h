@@ -2,6 +2,10 @@
 #include "MyForm.h"
 #include "multirecursivo.h"
 #include "multisumaiterativo.h"
+#include "Cambiodebaserecur.h"
+#include "cambiodebaseiterativo.h"
+#include "Palindromasrecur.h"
+#include "palindromasiterativo.h"
 
 namespace LAB3JULIORUIZ1284719 {
 
@@ -123,21 +127,23 @@ namespace LAB3JULIORUIZ1284719 {
 			// oPToolStripMenuItem
 			// 
 			this->oPToolStripMenuItem->Name = L"oPToolStripMenuItem";
-			this->oPToolStripMenuItem->Size = System::Drawing::Size(165, 26);
+			this->oPToolStripMenuItem->Size = System::Drawing::Size(180, 26);
 			this->oPToolStripMenuItem->Text = L"EJERCICIO 1";
 			this->oPToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::oPToolStripMenuItem_Click);
 			// 
 			// eJERCICIO2ToolStripMenuItem
 			// 
 			this->eJERCICIO2ToolStripMenuItem->Name = L"eJERCICIO2ToolStripMenuItem";
-			this->eJERCICIO2ToolStripMenuItem->Size = System::Drawing::Size(165, 26);
+			this->eJERCICIO2ToolStripMenuItem->Size = System::Drawing::Size(180, 26);
 			this->eJERCICIO2ToolStripMenuItem->Text = L"EJERCICIO 2";
+			this->eJERCICIO2ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::eJERCICIO2ToolStripMenuItem_Click);
 			// 
 			// eJERCICIO3ToolStripMenuItem
 			// 
 			this->eJERCICIO3ToolStripMenuItem->Name = L"eJERCICIO3ToolStripMenuItem";
-			this->eJERCICIO3ToolStripMenuItem->Size = System::Drawing::Size(165, 26);
+			this->eJERCICIO3ToolStripMenuItem->Size = System::Drawing::Size(180, 26);
 			this->eJERCICIO3ToolStripMenuItem->Text = L"EJERCICIO 3";
+			this->eJERCICIO3ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::eJERCICIO3ToolStripMenuItem_Click);
 			// 
 			// sALIRToolStripMenuItem1
 			// 
@@ -172,12 +178,14 @@ namespace LAB3JULIORUIZ1284719 {
 			this->eJERCICIO2ToolStripMenuItem1->Name = L"eJERCICIO2ToolStripMenuItem1";
 			this->eJERCICIO2ToolStripMenuItem1->Size = System::Drawing::Size(180, 26);
 			this->eJERCICIO2ToolStripMenuItem1->Text = L"EJERCICIO2";
+			this->eJERCICIO2ToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::eJERCICIO2ToolStripMenuItem1_Click);
 			// 
 			// eJERCICIO3ToolStripMenuItem1
 			// 
 			this->eJERCICIO3ToolStripMenuItem1->Name = L"eJERCICIO3ToolStripMenuItem1";
 			this->eJERCICIO3ToolStripMenuItem1->Size = System::Drawing::Size(180, 26);
 			this->eJERCICIO3ToolStripMenuItem1->Text = L"EJERCICIO3";
+			this->eJERCICIO3ToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::eJERCICIO3ToolStripMenuItem1_Click);
 			// 
 			// MyForm
 			// 
@@ -209,6 +217,27 @@ private: System::Void sALIRToolStripMenuItem1_Click(System::Object^ sender, Syst
 private: System::Void eJERCICIO1ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	multisumaiterativo^ imprimir2 = gcnew multisumaiterativo();//el objeto
 	imprimir2->ShowDialog();
+	this->Show();
+}
+private: System::Void eJERCICIO2ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Palindromasrecur^ imprimir3 = gcnew Palindromasrecur();
+	imprimir3->ShowDialog();
+	this->Show();
+}
+
+private: System::Void eJERCICIO3ToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	cambiodebaseiterativo^ imprimir4 = gcnew cambiodebaseiterativo();
+	imprimir4->ShowDialog();
+	this->Show();
+}
+private: System::Void eJERCICIO3ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Cambiodebaserecur^ imprimir3 = gcnew Cambiodebaserecur();
+	imprimir3->ShowDialog();
+	this->Show();
+}
+private: System::Void eJERCICIO2ToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	palindromasiterativo^ imprimir5 = gcnew palindromasiterativo();
+	imprimir5->ShowDialog();
 	this->Show();
 }
 };

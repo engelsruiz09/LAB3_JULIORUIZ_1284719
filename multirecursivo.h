@@ -215,7 +215,7 @@ namespace LAB3JULIORUIZ1284719 {
 	private: System::Void btncalcular_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
 		{
-			Stopwatch^ watch = gcnew System::Diagnostics::Stopwatch();
+			Stopwatch^ watch = gcnew Stopwatch();
 			//Stopwatch^ watch = Stopwatch::StarNew();
 			watch->Start();
 
@@ -224,7 +224,7 @@ namespace LAB3JULIORUIZ1284719 {
 
 			MessageBox::Show("OPERACION REALIZADA EXITOSAMENTE", "OPERACION MULTISUMA", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
-			for (int i = 0; i < 10000; i++)
+			for (int i = 0; i < 10000; i++)//segun la internet tenia que llevar un for para funcionar el stopwatch
 			{
 				Console::Write(i);
 			}

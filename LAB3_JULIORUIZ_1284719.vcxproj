@@ -120,11 +120,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cambiodebaseiterativo.cpp" />
+    <ClCompile Include="Cambiodebaserecur.cpp" />
     <ClCompile Include="multirecursivo.cpp" />
     <ClCompile Include="multisumaiterativo.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="palindromasiterativo.cpp" />
+    <ClCompile Include="Palindromasrecur.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cambiodebaseiterativo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Cambiodebaserecur.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="multirecursivo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -134,8 +144,20 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="palindromasiterativo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Palindromasrecur.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="cambiodebaseiterativo.resx">
+      <DependentUpon>cambiodebaseiterativo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cambiodebaserecur.resx">
+      <DependentUpon>Cambiodebaserecur.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="multirecursivo.resx">
       <DependentUpon>multirecursivo.h</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="palindromasiterativo.resx">
+      <DependentUpon>palindromasiterativo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Palindromasrecur.resx">
+      <DependentUpon>Palindromasrecur.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

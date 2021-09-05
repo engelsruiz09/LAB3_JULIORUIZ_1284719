@@ -30,6 +30,18 @@
     <ClCompile Include="multisumaiterativo.cpp">
       <Filter>ITERATIVOS</Filter>
     </ClCompile>
+    <ClCompile Include="Cambiodebaserecur.cpp">
+      <Filter>RECURSIVOS</Filter>
+    </ClCompile>
+    <ClCompile Include="cambiodebaseiterativo.cpp">
+      <Filter>ITERATIVOS</Filter>
+    </ClCompile>
+    <ClCompile Include="Palindromasrecur.cpp">
+      <Filter>RECURSIVOS</Filter>
+    </ClCompile>
+    <ClCompile Include="palindromasiterativo.cpp">
+      <Filter>ITERATIVOS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -39,6 +51,18 @@
       <Filter>RECURSIVOS</Filter>
     </ClInclude>
     <ClInclude Include="multisumaiterativo.h">
+      <Filter>ITERATIVOS</Filter>
+    </ClInclude>
+    <ClInclude Include="Cambiodebaserecur.h">
+      <Filter>RECURSIVOS</Filter>
+    </ClInclude>
+    <ClInclude Include="cambiodebaseiterativo.h">
+      <Filter>ITERATIVOS</Filter>
+    </ClInclude>
+    <ClInclude Include="Palindromasrecur.h">
+      <Filter>RECURSIVOS</Filter>
+    </ClInclude>
+    <ClInclude Include="palindromasiterativo.h">
       <Filter>ITERATIVOS</Filter>
     </ClInclude>
   </ItemGroup>
