@@ -414,34 +414,9 @@ namespace LAB3JULIORUIZ1284719 {
 			//Stopwatch^ watch = Stopwatch::StarNew();
 			watch->Start();
 
-			//String^ numconversion = Convert::ToString(txtnum->Text);
-			//int baseactual = Convert::ToInt32(txtbas->Text);
-			//int basedestino = Convert::ToInt32(TXBBASDEST->Text);
-			//int numdecimal = 0;
-
-			//numdecimal = OToDecimalI(numconversion, baseactual);
-
-			//lblresultados->Text =  DToDestinoI(numdecimal, basedestino);
-
-			//String^ numconversion = Convert::ToString(txtnum->Text);
-			//int baseactual = Convert::ToInt32(txtbas->Text);
-			//int basedestino = Convert::ToInt32(TXBBASDEST->Text);
-
-			//int num1 = ConvertDecimal(numconversion, 0, 0, baseactual);
-
-			//if (basedestino == 10) {
-			//	lblresultados->Text = Convert::ToString(num1);
-			//}
-			//else {
-			//	lblresultados->Text = CambiarBase(num1, basedestino);
-			//}
-
-
 			int num1 = Convert::ToInt32(txtbas->Text);
 			lblresultados->Text = "" + Conver_bases2(Convert::ToInt32(txtbas->Text), Convert::ToInt32(TXBBASDEST->Text), Convert::ToString(txtnum->Text));
 
-			lblresultados->Text =  DToDestinoI(numdecimal, basedestino);
-			//lblResultadoR->Text = OTDecimalR(numero, BaseDestino, numero->Length, 0));
 			watch->Stop();
 			MessageBox::Show("OPERACION REALIZADA EXITOSAMENTE", "OPERACION CAMBIO DE BASE M A N", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			for (int i = 0; i < 10000; i++)//segun la internet tenia que llevar un for para funcionar el stopwatch
