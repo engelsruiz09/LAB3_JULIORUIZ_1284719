@@ -1,4 +1,6 @@
 #pragma once
+#include <math.h>
+
 
 
 namespace LAB3JULIORUIZ1284719 {
@@ -11,6 +13,7 @@ namespace LAB3JULIORUIZ1284719 {
 	using namespace System::Drawing;
 	using namespace System::Diagnostics;
 
+	
 	/// <summary>
 	/// Resumen de cambiodebaseiterativo
 	/// </summary>
@@ -204,99 +207,205 @@ namespace LAB3JULIORUIZ1284719 {
 
 		}
 #pragma endregion
-	/*	const int base10 = 10;
-		array<char^>^ chexa = gcnew array<char^>{'A','B', 'C','D', 'E', 'F'};
-		array<int^>^ ihexanumeric = gcnew array<int^>{10, 11, 12, 13, 14};
-		array<int^>^ ihexaindex = gcnew array<int^>{0, 1, 2, 3, 4, 5};*/
-		const int asciidiff = 48;
 
-		//String^ DecimalToBase(int iDec, int numbase)
-		//{
-		//	String^ strBin = "";
-		//	array<int^>^ result = gcnew array<int^>(32);
-		//	int MaxBit = 32;
-		//	for (;iDec > 0; iDec /= numbase)
-		//	{
-		//		int rem = iDec % numbase;
-		//		result[--MaxBit] = rem;
-		//	}
-		//	for (int i = 0; i < result->Length; i++) {
-		//		if ((int)result->GetValue(i) >= base10) {
-		//			strBin += chexa[(int)result->GetValue(i) % base10];
-		//		}
-		//		else
-		//		{
-		//			strBin += result->GetValue(i);
-		//		}
-		//		strBin = strBin->TrimStart(new char[] {'0'});
-		//		return strBin;
-		//	}	
-		//}
-		//int BaseToDecimal(String^ sBase, int numbase)
-		//{
-		//	int dec = 0;
-		//	int b;
-		//	int iProduct = 1;
-		//	String^ sHexa = "";
-		//	if (numbase > base10)
-		//	{
-		//		for (int i = 0; i < chexa->Length; i++) {
-		//			sHexa += chexa->GetValue(i)->ToString();
-		//		}
-		//			
-		//	}	
-		//	for (int i = sBase->Length - 1; i >= 0; i--, iProduct *= numbase)
-		//	{
-		//		String^ sValue = sBase[i]->ToString();
-		//		if (sValue->IndexOfAny(chexa) >= 0) {
-		//			b = ihexanumeric[sHexa->IndexOf(sBase[i])];
-		//		}
-		//		else
-		//		{
-		//			b = (int)sBase[i] - asciidiff;
-		//		}
-		//		dec += (b * iProduct);
-		//	}
-		//	return dec;
-		//}
-
-
-		//solo para algunas bases funciona ya no me dio tiempo para las demas :(((
-		int OToDecimalI(String^ numero, int base)
-		{
-			int expo = 0;
-			int resultado = 0;
-			for (int i = numero->Length - 1; i >= 0; i--)
+		String^ Conver_base(int final, int n, int residuo) {
+			if (n==0)
 			{
-				resultado = resultado + Convert::ToInt32(numero->Substring(i, 1)) * Math::Pow(base, expo);
-				expo++;
+				residuo = 0;
+				return "";
 			}
-			return resultado;
+			else
+			{
+				residuo = n % final;
+				n = n / final;
+				if (residuo==10)
+				{
+					return Conver_base(final, n, residuo) + "A";
+				}
+				else if (residuo == 11)
+				{
+					return Conver_base(final, n, residuo) + "B";
+				}
+				else if (residuo == 12)
+				{
+					return Conver_base(final, n, residuo) + "C";
+				}
+				else if (residuo == 13)
+				{
+					return Conver_base(final, n, residuo) + "D";
+				}
+				else if (residuo == 14 )
+				{
+					return Conver_base(final, n, residuo) + "E";
+				}
+				else if (residuo == 15)
+				{
+					return Conver_base(final, n, residuo) + "F";
+				}
+				else
+				{
+					return Conver_base(final, n, residuo) + Convert::ToString(residuo);
+				}
+			}
 		}
-	    
 
-
-		String^ DToDestinoI(int numero, int base)
-		{
-			int div = 0;
+		String^ Conver_bases2(int original, int final, String^ n) {
+			int respuesta = 0;
 			int residuo = 0;
-			String^ resultado = "";
-
-			div = numero;
-			do
+			int elevar = 1;
+			if (original == 2)
 			{
-				residuo = div % base;
-				resultado = Convert::ToString(residuo) + resultado;
-				div = div / base;
-			} while (div > base);
+				bool u = false;
+				for (int i = 0; i < n->Length; i++)
+				{
+					String^ w = n->Substring(i, 1);
+					if (w == "1"||n->Substring(i,1)=="0")
+					{
 
-			if (div != 0)
-			{
-				resultado = Convert::ToString(div) + resultado;
+					}
+					else
+					{
+						return "error";
+					}
+				}
 			}
 
-			return resultado;
+			if (original == 10)
+			{
+				return Conver_base(final, Convert::ToInt32(n), residuo);
+			}
+			else
+			{
+				int j = 0;
+				int f = n->Length - 1;
+				for (int i = n->Length; i > 0; i--)
+				{
+					if (n->Substring(f, 1) == "A")
+					{
+						respuesta = respuesta + (10 * (pow(original, j)));
+
+					}
+					else if (n->Substring(f, 1) == "B")
+					{
+						respuesta = respuesta + (11 * (pow(original, j)));
+
+					}
+					else if (n->Substring(f, 1) == "C")
+					{
+						respuesta = respuesta + (12 * (pow(original, j)));
+
+					}
+					else if (n->Substring(f, 1) == "D")
+					{
+						respuesta = respuesta + (13 * (pow(original, j)));
+					}
+					else if (n->Substring(f, 1) == "E")
+					{
+						respuesta = respuesta + (14 * (pow(original, j)));
+					}
+					else if (n->Substring(f, 1) == "F")
+					{
+						respuesta = respuesta + (15 * (pow(original, j)));
+					}
+					else
+					{
+						respuesta = respuesta + (Convert::ToInt32(n->Substring(f, 1)) * (pow(original, j)));
+					}
+					j++;
+					f--;
+
+				}
+				return Conver_base(final, respuesta, residuo);
+			}
+
 		}
+
+
+
+		//int potencia(int num, int pot) {
+		//	int result = num;
+		//	while (pot > 1)
+		//	{
+		//		result = result * num;
+		//		pot--;
+		//	}
+		//	return result;
+		//}
+		//String^ CambiarBase(int num, int basedestino) {
+		//	int currentNum = num % basedestino;
+		//	String^ letters = "ABCDEF";
+		//	String^ let = "";
+		//	if (currentNum >= 10) {
+		//		currentNum -= 10;
+		//		let = letters[currentNum].ToString();
+		//	}
+		//	else {
+		//		let = currentNum.ToString();
+		//	}
+		//	int newNum = num / basedestino;
+		//	if (num < basedestino) {
+		//		return Convert::ToString(let);
+		//	}
+		//	return (CambiarBase(newNum, basedestino) + let);
+		//}
+		////como cuesta hacer un string aqui >;v
+		//int ConvertDecimal(String^ num1, int num, int num2, int baseactual) {
+		//	//num1->Split();
+		//	char currentChar;
+		//	int currentValue;
+		//	for (int i = 0; i < num1->Length; i++)
+		//	{
+		//		//if (num1[i] != ".")
+		//		currentChar = num1[i];
+		//		if (currentChar >= 'A') {
+		//			currentValue = currentChar - 'A' + 10;
+		//		}
+		//		else {
+		//			currentValue = currentChar - '0';
+		//		}
+
+		//		num2 = Convert::ToInt32(currentValue);
+		//		num += num2 * potencia(baseactual, num1->Length - 1 - i);
+		//	}
+
+		//	return num;
+		//}
+		////solo para algunas bases funciona ya no me dio tiempo para las demas :(((
+		//int OToDecimalI(String^ numero, int base)
+		//{
+		//	int expo = 0;
+		//	int resultado = 0;
+		//	for (int i = numero->Length - 1; i >= 0; i--)
+		//	{
+		//		resultado = resultado + Convert::ToInt32(numero->Substring(i, 1)) * Math::Pow(base, expo);
+		//		expo++;
+		//	}
+		//	return resultado;
+		//}
+	 //   
+
+
+		//String^ DToDestinoI(int numero, int base)
+		//{
+		//	int div = 0;
+		//	int residuo = 0;
+		//	String^ resultado = "";
+
+		//	div = numero;
+		//	do
+		//	{
+		//		residuo = div % base;
+		//		resultado = Convert::ToString(residuo) + resultado;
+		//		div = div / base;
+		//	} while (div > base);
+
+		//	if (div != 0)
+		//	{
+		//		resultado = Convert::ToString(div) + resultado;
+		//	}
+
+		//	return resultado;
+		//}
 
 	private: System::Void btnobtiene_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
@@ -305,14 +414,32 @@ namespace LAB3JULIORUIZ1284719 {
 			//Stopwatch^ watch = Stopwatch::StarNew();
 			watch->Start();
 
-			String^ numconversion = Convert::ToString(txtnum->Text);
-			int baseactual = Convert::ToInt32(txtbas->Text);
-			int basedestino = Convert::ToInt32(TXBBASDEST->Text);
-			int numdecimal = 0;
+			//String^ numconversion = Convert::ToString(txtnum->Text);
+			//int baseactual = Convert::ToInt32(txtbas->Text);
+			//int basedestino = Convert::ToInt32(TXBBASDEST->Text);
+			//int numdecimal = 0;
 
-			numdecimal = OToDecimalI(numconversion, baseactual);
+			//numdecimal = OToDecimalI(numconversion, baseactual);
 
-			lblresultados->Text =  DToDestinoI(numdecimal, basedestino);
+			//lblresultados->Text =  DToDestinoI(numdecimal, basedestino);
+
+			//String^ numconversion = Convert::ToString(txtnum->Text);
+			//int baseactual = Convert::ToInt32(txtbas->Text);
+			//int basedestino = Convert::ToInt32(TXBBASDEST->Text);
+
+			//int num1 = ConvertDecimal(numconversion, 0, 0, baseactual);
+
+			//if (basedestino == 10) {
+			//	lblresultados->Text = Convert::ToString(num1);
+			//}
+			//else {
+			//	lblresultados->Text = CambiarBase(num1, basedestino);
+			//}
+
+
+			int num1 = Convert::ToInt32(txtbas->Text);
+			lblresultados->Text = "" + Conver_bases2(Convert::ToInt32(txtbas->Text), Convert::ToInt32(TXBBASDEST->Text), Convert::ToString(txtnum->Text));
+
 			//lblResultadoR->Text = OTDecimalR(numero, BaseDestino, numero->Length, 0));
 			watch->Stop();
 			MessageBox::Show("OPERACION REALIZADA EXITOSAMENTE", "OPERACION CAMBIO DE BASE M A N", MessageBoxButtons::OK, MessageBoxIcon::Information);
