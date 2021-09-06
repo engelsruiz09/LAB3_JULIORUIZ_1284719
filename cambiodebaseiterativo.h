@@ -440,6 +440,8 @@ namespace LAB3JULIORUIZ1284719 {
 			int num1 = Convert::ToInt32(txtbas->Text);
 			lblresultados->Text = "" + Conver_bases2(Convert::ToInt32(txtbas->Text), Convert::ToInt32(TXBBASDEST->Text), Convert::ToString(txtnum->Text));
 
+			lblresultados->Text =  DToDestinoI(numdecimal, basedestino);
+			//lblResultadoR->Text = OTDecimalR(numero, BaseDestino, numero->Length, 0));
 			watch->Stop();
 			MessageBox::Show("OPERACION REALIZADA EXITOSAMENTE", "OPERACION CAMBIO DE BASE M A N", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			for (int i = 0; i < 10000; i++)//segun la internet tenia que llevar un for para funcionar el stopwatch
